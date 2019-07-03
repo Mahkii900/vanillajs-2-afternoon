@@ -85,6 +85,9 @@
             container.appendChild(ball)
         }, 50)
     }
+
+    window.addEventListener('mouseover', function() {drawId = draw()})
+    window.addEventListener('mouseout', function() {clearInterval(drawId)})
 </script>
 
 </html>
