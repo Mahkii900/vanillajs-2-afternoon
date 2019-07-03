@@ -58,7 +58,18 @@
 </body>
 
 <script>
+    const mousePosition = {x:0, y:0}
+    let drawId
 
+    function getRandomNumber(min, max) {
+        return Math.round(Math.random() * (max - min + 1)) + min;
+    }
+
+    window.addEventListener('mousemove', function(e){mousePosition.x = e.pageX; mousePosition.y = e.y})
+
+    function draw() {
+        return setInterval(function() {})
+    }
 </script>
 
 </html>
