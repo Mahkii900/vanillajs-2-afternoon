@@ -88,6 +88,8 @@
     const list = document.getElementById('list')
     const search = document.querySelector('input')
 
+    list.style.visibility = "hidden"
+
     fetch('https://www.swapi.co/api/people')
         .then(response => response.json())
         .then(response => characters.push(...response.results))
@@ -96,7 +98,12 @@
         let filtered = characters.filter(ele => ele.name.toLowerCase().includes(this.value.toLowerCase())).map(function(e){return `<li>${e.name}</li>`})
 
         if (filtered.length) {
+            list.style.visibility = 'visible'
+            list.style.display = 'block'
             render(filtered)
+        } else {
+            list.style.display = 'none'
+            list.innerHTML = ''
         }
     }
 
