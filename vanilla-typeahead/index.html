@@ -79,12 +79,15 @@
             <input type="text">
             <ul id="list"></ul>
         </div>
+        <div class="selected"></div>
     </div>
 
 </body>
 
 <script>
     const characters = []
+    const selectArr = []
+    const selected = document.getElementsByClassName('selected')
     const list = document.getElementById('list')
     const search = document.querySelector('input')
 
@@ -116,7 +119,20 @@
         list.innerHTML = html
     }
 
+    function addName() {
+        let arr = []
+        if (!selectArr.includes(this.name)) {
+            selectArr.push(this.name)
+            for (i = 0; i < selectArr.length; i++) {
+                arr.push(`<li>${selectArr[i]}</li>`)
+            }
+        }
+        selected.innerHTML = arr.join('')
+    }
+
     search.addEventListener('keyup', filterText)
+    list.addEventListener('onclick', addName)
+
 </script>
 
 </html>
